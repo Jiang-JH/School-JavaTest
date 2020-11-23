@@ -8,8 +8,8 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         while (true){
             int a = scanner.nextInt();
-            int x = (int) (Math.random()*a);
-            int y = (int) (Math.random()*a);
+            int x = (int) (Math.random()*a*100%100);
+            int y = (int) (Math.random()*a*100%100);
             System.out.println(x+","+y);
         }
 
