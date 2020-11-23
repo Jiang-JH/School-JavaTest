@@ -10,7 +10,12 @@ public class App {
             int a = scanner.nextInt();
             int x = (int) (Math.random()*a*100%100);
             int y = (int) (Math.random()*a*100%100);
-            System.out.println(x+","+y);
+            if(a ==1){
+                System.out.println(x+","+y);
+            }else {
+                System.out.println("请输入数字‘1’");
+            }
+
         }
 
 
