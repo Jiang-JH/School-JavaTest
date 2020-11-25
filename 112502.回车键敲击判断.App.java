@@ -39,10 +39,7 @@ public class App {
                           {
                           textArea_B.setText("错了");
                       }
-                      if(textArea_B.getText().equals("猜对了") || textArea_B.getText().equals("错了")){
-                          textArea_A.setText("");
 
-                      }
                   }
 
             }
