@@ -1,0 +1,67 @@
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class App {
+    JPanel myPanel=new JPanel();
+    JLabel label_background=new JLabel();
+    JLabel label_score=new JLabel();
+    int score,score1,score2,score3;
+
+    Border border=BorderFactory.createLineBorder(Color.pink);
+
+    //构造方法
+    public App() {
+        myPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                //鼠标点击输出x与y的位置
+                System.out.println(e.getX()+"."+e.getY());
+                if(((e.getX()<280&&e.getY()<285)&&(e.getX()>219&&e.getY()>260)) || ((e.getX()<795&&e.getY()<285)&&(e.getX()>732&&e.getY()>243))){
+                    score1=1;
+                    score=score1+score2+score3;
+                    label_score.setText("得分："+String.valueOf(score));
+                }
+                if(((e.getX()<958&&e.getY()<68)&&(e.getX()>909&&e.getY()>20)) || ((e.getX()<450&&e.getY()<60)&&(e.getX()>400&&e.getY()>25))){
+                    score2=1;
+                    score=score1+score2+score3;
+                    label_score.setText("得分："+String.valueOf(score));
+                }
+                if(((e.getX()<436&&e.getY()<410)&&(e.getX()>421&&e.getY()>399)) || ((e.getX()<946&&e.getY()<409)&&(e.getX()>933&&e.getY()>401))) {
+                    score3 = 1;
+                    score = score1 + score2 + score3;
+                    label_score.setText("得分：" + String.valueOf(score));
+                }
+                //当分数等于3时弹出弹窗点击确定结束程序
+                if(score==3){
+                    JOptionPane.showMessageDialog(null,"恭喜通关！","提示", JOptionPane.WARNING_MESSAGE);
+                    System.exit(0);
+                }
+
+            }
+        });
+    }
+    //显示窗体方法
+    void go(){
+        label_score.setText("得分：0");
+        label_score.setBounds(90,50,200,50);
+        myPanel.add(label_score);
+        java.net.URL imgURL=App.class.getResource("img/mfsn.jpg");
+        label_background.setIcon(new ImageIcon(imgURL));
+        label_background.setBounds(0,0,1000,800);
+        JFrame frame = new JFrame("美女来找茬");
+        myPanel.setLayout(null);
+        myPanel.add(label_background);
+        frame.setContentPane(myPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setBounds(100,100,1000,800);
+        //frame.pack();
+        frame.setVisible(true);
+    }
+    public static void main(String[] args) {
+        new App().go();
+    }
+}
